@@ -19,19 +19,15 @@ return new class extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->unsignedBigInteger('role_id');
             $table->string('password');
             $table->smallInteger('status');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
 
-        \DB::table('users')->insert([
-            'name' => 'Tecnologia Bandes',
-            'username' => 'tbandes',
-            'email' => 'tbandes@bandes.gob.ve',
-            'password' =>\Hash::make('123456'),
-            'status' => 1
-        ]);
+        
     }
 
     /**

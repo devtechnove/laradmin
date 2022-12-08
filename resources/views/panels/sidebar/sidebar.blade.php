@@ -11,24 +11,27 @@
     </div>
 
     <div class="menu-inner-shadow"></div>
-
+    <!-- Misc -->
+    <li class="menu-header small text-uppercase">
+      <span class="menu-header-text">SEGURIDAD</span>
+    </li>
     <ul class="menu-inner py-1">
       <!-- Dashboards -->
       <li class="menu-item active open">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons ti ti-smart-home"></i>
-          <div data-i18n="Dashboards">Dashboards</div>
+          <i class="menu-icon tf-icons ti ti-lock"></i>
+          <div data-i18n="Seguridad">Seguridad</div>
           <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
         </a>
         <ul class="menu-sub">
-          <li class="menu-item active">
-            <a href="index.html" class="menu-link">
-              <div data-i18n="Analytics">Analytics</div>
+          <li class="menu-item  {{ request()->routeIs('usuarios.*') ? 'active' : '' }}"> 
+            <a href="/usuarios" class="menu-link">
+              <div data-i18n="Usuarios">Usuarios</div>
             </a>
           </li>
-          <li class="menu-item">
-            <a href="dashboards-crm.html" class="menu-link">
-              <div data-i18n="CRM">CRM</div>
+          <li class="menu-item  {{ request()->routeIs('roles.*') ? 'active' : '' }}"> 
+            <a href="/roles" class="menu-link">
+              <div data-i18n="Roles">Roles</div>
             </a>
           </li>
           <li class="menu-item">
@@ -38,10 +41,7 @@
           </li>
         </ul>
       </li>
-      <!-- Misc -->
-      <li class="menu-header small text-uppercase">
-        <span class="menu-header-text">Misc</span>
-      </li>
+     
      
     </ul>
   </aside>

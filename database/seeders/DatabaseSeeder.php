@@ -16,9 +16,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+         $this->call(\Modules\Roles\Database\Seeders\RolesDatabaseSeeder::class);
+
+        $user = new  \App\Models\User();
+        $user->name= 'Tecnologia Bandes';
+        $user->username= 'tbandes';
+        $user->email= 'tbandes@bandes.gob.ve';
+        $user->password=\Hash::make('123456');
+        $user->status= 1;
+        $user->role_id= 1;
+        $user->save();
+
+        $user->assignRole('Tecnologia');
     }
 }
