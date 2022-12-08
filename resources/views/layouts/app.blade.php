@@ -25,6 +25,7 @@
     <!-- Fonts -->
     
     @include('panels.styles.style')
+    @livewireStyles
     <!-- Helpers -->
     <script src="/assets/vendor/js/helpers.js"></script>
 
@@ -85,5 +86,11 @@
         <!--/ Scripsts -->
 
         @include('panels.scripts.scripts')
+        @livewireScripts
+        <script type="text/javascript">
+          window.livewire.on('closeModal', () => {
+            $('#createDataModal').modal('hide');
+          });
+        </script>
   </body>
 </html>
