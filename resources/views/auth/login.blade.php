@@ -1,4 +1,6 @@
 @extends('layouts.auth')
+@section('title','LOGIN')
+    
 
 @section('content')
 <div class="card">

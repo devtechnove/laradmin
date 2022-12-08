@@ -16,12 +16,22 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->smallInteger('status');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        \DB::table('users')->insert([
+            'name' => 'Tecnologia Bandes',
+            'username' => 'tbandes',
+            'email' => 'tbandes@bandes.gob.ve',
+            'password' =>\Hash::make('123456'),
+            'status' => 1
+        ]);
     }
 
     /**
